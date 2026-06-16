@@ -66,9 +66,14 @@ export default function MyOpportunities({ myOpportunities, onDelete }) {
                     </span>
                   </div>
 
+                  {/* ✨ NEW: Confirmation before deletion */}
                   <button 
                     className="btn btn-sm btn-outline-danger border-0" 
-                    onClick={() => onDelete(opp.id)}
+                    onClick={() => {
+                      if (window.confirm("Are you sure you want to delete this saved opportunity?")) {
+                        onDelete(opp.id);
+                      }
+                    }}
                     style={{ fontSize: '1.2rem', textShadow: '0 0 8px rgba(255, 0, 0, 0.5)' }} 
                     title="Delete Opportunity"
                   >
@@ -81,7 +86,7 @@ export default function MyOpportunities({ myOpportunities, onDelete }) {
         ))}
       </div>
 
-      {/* ✨ PAGINATION BUTTON */}
+      {/* PAGINATION BUTTON */}
       {visibleCount < myOpportunities.length && (
         <div className="text-center mt-5">
           <button 
