@@ -264,8 +264,7 @@ function App() {
 	};
 
 	const handleManualRefresh = () => {
-		setPage(1);
-		fetchOpportunities(1, false);
+		window.location.reload();
 	};
 
 	const handleAddOpportunity = (newOpp) => {
